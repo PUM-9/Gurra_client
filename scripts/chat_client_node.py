@@ -3,16 +3,17 @@
 import rospy
 from chat_server.msg import Message
 
+namn = "Thadeus Godbotherer III"
 def chat():
     pub = init()
     rate = rospy.Rate(10) #10 Hz
     while not rospy.is_shutdown():
         chat_str = raw_input(": ")
-        pub.publish(sender="Gurra",message= chat_str)
+        pub.publish(sender=namn,message= chat_str)
         rate.sleep()
 
 def callback(data):
-    if data.sender != "Gurra":
+    if data.sender != namn:
         print('\n' + data.sender + " : " + data.message)
 
 def init():
