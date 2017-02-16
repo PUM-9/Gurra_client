@@ -3,8 +3,9 @@
 import rospy
 from chat_server.msg import Message
 
-namn = "Thadeus Godbotherer III"
+namn = ""
 def chat():
+    namn = raw_input("What be your name milord?")
     pub = init()
     rate = rospy.Rate(10) #10 Hz
     while not rospy.is_shutdown():
