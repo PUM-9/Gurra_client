@@ -8,7 +8,7 @@ def chat():
     rospy.init_node('gurra_chat_pub')
     rate = rospy.Rate(10) #10 Hz
     while not rospy.is_shutdown() :
-        message = str(input("skriv: "))
+        message = raw_input("skriv: ")
         #message = "test"
         chat_str = message + ":" + str(rospy.get_time())
         pub.publish(sender="Gurra",message= chat_str)
