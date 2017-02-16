@@ -34,6 +34,9 @@ def macros(text):
         return text
     else:
         if text[0] == "/":
+            if text[:7] == "/legion":
+                name = "Legion"
+                return "We are legion for we are many We are legion for we are many We are legion for we are many We are legion for we are many We are legion for we are many"
             if text[:7] == "/noname":
                 name = ""
                 return "A chatter has no name, Valar Morgules"
