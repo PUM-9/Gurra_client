@@ -13,7 +13,7 @@ def chat():
     rate = rospy.Rate(10) #10 Hz
     while not rospy.is_shutdown():
         chat_str = raw_input(": ")
-        pub.publish(sender=namn,message= chat_str)
+        pub.publish(sender=name,message= chat_str)
         rate.sleep()
 
 def callback(data):
