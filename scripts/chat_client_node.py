@@ -34,6 +34,9 @@ def macros(text):
         return text
     else:
         if text[0] == "/":
+            if text[:7] == "/noname":
+                name = ""
+                return "A chatter has no name, Valar Morgules"
             if text[:5] == "/exit":
                 exit()
             if text[:4] == "/lol":
