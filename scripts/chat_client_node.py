@@ -18,7 +18,7 @@ def chat():
 
 def callback(data):
     global name
-    if data.sender != namn:
+    if data.sender != name:
         print('\n' + data.sender + " : " + data.message)
 
 def init():
