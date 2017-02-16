@@ -12,7 +12,7 @@ def chat():
         rate.sleep()
 
 def callback(data):
-    if data.sender is not "Gurra":
+    if data.sender != "Gurra":
         print('\n' + data.sender + " : " + data.message)
 
 def init():
