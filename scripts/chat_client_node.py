@@ -25,7 +25,7 @@ def callback(data):
 
 def init():
     pub = rospy.Publisher('chat_in', Message, queue_size=10)
-    rospy.init_node('gurra_chat_pub')
+    #rospy.init_node('gurra_chat_pub')
     rospy.init_node('gurra_chat_sub', anonymous=True)
     rospy.Subscriber("chat_out", Message, callback)
     return pub
