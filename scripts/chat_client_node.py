@@ -3,9 +3,12 @@
 import rospy
 from chat_server.msg import Message
 
-namn = ""
+name = ""
+
+
 def chat():
-    namn = raw_input("What be your name milord?")
+    global name
+    name = raw_input("What be your name milord?")
     pub = init()
     rate = rospy.Rate(10) #10 Hz
     while not rospy.is_shutdown():
@@ -14,6 +17,7 @@ def chat():
         rate.sleep()
 
 def callback(data):
+    global name
     if data.sender != namn:
         print('\n' + data.sender + " : " + data.message)
 
