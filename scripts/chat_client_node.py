@@ -34,6 +34,8 @@ def macros(text):
         return text
     else:
         if text[0] == "/":
+            if text[:5] == "/exit":
+                exit()
             if text[:4] == "/lol":
                 return "That was highly amusing my good man!"
             if text[:5] == "/name":
