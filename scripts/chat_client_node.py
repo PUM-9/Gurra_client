@@ -13,7 +13,8 @@ def chat():
     rate = rospy.Rate(10) #10 Hz
     while not rospy.is_shutdown():
         chat_str = raw_input(": ")
-        pub.publish(sender=name,message= chat_str)
+        message = macros(chat_str)
+        pub.publish(sender=name,message= message)
         rate.sleep()
 
 def callback(data):
@@ -26,6 +27,18 @@ def init():
     rospy.init_node('gurra_chat_sub', anonymous=True)
     rospy.Subscriber("chat_out", Message, callback)
     return pub
+
+def macros(text):
+    global name
+    if text[0] == "/":
+        if text[:5] == "/name":
+            name = text[5:]
+            return ""
+        else :
+            return text
+    else:
+        return text
+
 
 if __name__ == "__main__":
     try:
