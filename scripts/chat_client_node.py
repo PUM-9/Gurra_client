@@ -19,8 +19,8 @@ def chat():
 
 def callback(data):
     global name
-    if data.sender != name:
-        print('\n' + data.sender + " : " + data.message)
+    #if data.sender != name:
+    print('\n' + data.sender + " : " + data.message)
 
 def init():
     pub = rospy.Publisher('chat_in', Message, queue_size=10)
