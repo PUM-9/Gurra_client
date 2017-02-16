@@ -8,7 +8,7 @@ name = ""
 
 def chat():
     global name
-    name = raw_input("What be your name milord?")
+    name = raw_input("What be your name milord? \n")
     pub = init()
     rate = rospy.Rate(10) #10 Hz
     while not rospy.is_shutdown():
@@ -30,14 +30,19 @@ def init():
 
 def macros(text):
     global name
-    if text[0] == "/":
-        if text[:5] == "/name":
-            name = text[5:]
-            return ""
-        else :
-            return text
-    else:
+    if len(text) == 0:
         return text
+    else:
+        if text[0] == "/":
+            if text[:4] == "/lol":
+                return "That was highly amusing my good man!"
+            if text[:5] == "/name":
+                name = text[6:]
+                return ""
+            else :
+                return text
+        else:
+            return text
 
 
 if __name__ == "__main__":
