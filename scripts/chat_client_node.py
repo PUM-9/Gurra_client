@@ -17,6 +17,7 @@ def chat():
 def hey_listen():
     rospy.init_node('gurra_chat_sub', anonymous=True)
     rospy.Subscriber("chat_out", Message, callback)
+    rospy.spin()
 
 def callback(data):
     rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.sender + data.message)
