@@ -8,7 +8,7 @@ def chat():
     rospy.init_node('gurra_chat_pub')
     rate = rospy.Rate(10) #10 Hz
     while not rospy.is_shutdown() :
-        message = raw_input("skriv: ")
+        message = raw_input(": ")
         #message = "test"
         chat_str = message + ":" + str(rospy.get_time())
         pub.publish(sender="Gurra",message= chat_str)
@@ -19,10 +19,10 @@ def hey_listen():
     rospy.Subscriber("chat_out", Message, callback)
 
 def callback(data):
-    rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.message)
+    rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.sender + data.message)
 
 if __name__ == "__main__":
     try:
-        chat()
+        hey_listen()
     except rospy.ROSInterruptException:
         pass
